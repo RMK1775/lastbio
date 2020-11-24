@@ -19,7 +19,7 @@ public class PostController {
 
     @GetMapping("/posts/{id}")
     @ResponseBody
-    public String viewSelectedPost(@PathVariable int id){
+    public String viewSelectedPost(@PathVariable long id){
         return "a post";
     }
 

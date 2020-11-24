@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<div th:if="${guess} == null">
+    <form name="user-guess" action="/roll-dice/{guess}" method="get">
+        <label for="diceroll">Pick a number</label>
+        <select name="guess" id="diceroll" form-id="user-guess">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
+    </form>
+</div>
 </body>
 </html>
