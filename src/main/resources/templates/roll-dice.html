@@ -2,9 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Insert Title Here</title>
+    <link th:replace="partials/links :: links"/>
 </head>
 <body>
+<header th:replace="partials/header :: header"></header>
+<nav th:replace="partials/navbar :: navbar"></nav>
 <h2 th:text="${message}"></h2><br>
 <div>
     <form name="user-guess" action="/roll-dice/{guess}" method="get">
@@ -19,5 +22,7 @@
         </select>
     </form>
 </div>
+<footer th:replace="partials/footer :: footer"></footer>
+<scripts th:replace="partials/scripts :: scripts"></scripts>
 </body>
 </html>
