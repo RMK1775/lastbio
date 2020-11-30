@@ -16,7 +16,8 @@ public class DicerollController {
 
     @GetMapping("/roll-dice/{guess}")
     public String returnResult(@PathVariable String guess, Model model){
-
+//        int userNum = (int) guess;
+        int rolledNum = (int) ((Math.random()*6)+1);
         model.addAttribute("guess", guess);
         return guess;
     }
