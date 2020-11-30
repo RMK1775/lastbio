@@ -5,7 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<div th:if="${guess} == null">
+<h2 th:text="${message}"></h2><br>
+<div>
     <form name="user-guess" action="/roll-dice/{guess}" method="get">
         <label for="diceroll">Pick a number</label>
         <select name="guess" id="diceroll" form-id="user-guess">
