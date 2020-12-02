@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head :: head('Edit Ad')">
+    <meta charset="UTF-8">
+</head>
+<body>
+<nav th:replace="partials/navbar :: nav"></nav>
+<header th:replace="partials/header :: header('Change it up')"></header>
+
+<main class="container">
+<form th:action="@{/ads/{id}/edit(id=${ad.id})}" th:method="post">
+    Title:
+    <input name="title" id="name-ipt" th:value="${ad.title}"/>
+    <br/>
+    Description:
+    <input name="description" th:value="${ad.description}"/>
+    <br/>
+    <input class="btn btn-small btn-success" type="submit"/>
+</form>
+    <form th:action="@{/ads/{id}/delete(id=${ad.getId()})}">
+        <button class="btn btn-small btn-danger">Delete</button>
+    </form>
+</main>
+
+<footer th:replace="partials/partials :: footer"></footer>
+<th:block th:include="partials/scripts :: scripts"></th:block>
+</body>
+</html>
