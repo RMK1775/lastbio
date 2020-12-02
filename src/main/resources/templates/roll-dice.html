@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="partials/head :: head('Step right up')">
     <meta charset="UTF-8">
-    <title>Insert Title Here</title>
-    <link th:replace="partials/links :: links"/>
 </head>
 <body>
-<header th:replace="partials/header :: header"></header>
-<nav th:replace="partials/navbar :: navbar"></nav>
+<nav th:replace="partials/navbar :: nav"></nav>
+<header th:replace="partials/header :: header('Just a roll of the dice...')"></header>
+
+<main class="container">
+    <a th:href="@{/roll-dice/1}">Guess 1</a><br>
+    <a th:href="@{/roll-dice/2}">Guess 2</a><br>
+    <a th:href="@{/roll-dice/3}">Guess 3</a><br>
+    <a th:href="@{/roll-dice/4}">Guess 4</a><br>
+    <a th:href="@{/roll-dice/5}">Guess 5</a><br>
+    <a th:href="@{/roll-dice/6}">Guess 6</a>
+
+    <div th:if="${myGuess}">
+        Your guess was <span th:text="${myGuess}"></span>.<br>
+        The rolled number is <span th:text="${randomNumber}"></span>.
+    </div>
+
+    <h3 th:if="${isCorrectGuess}">
+        You guessed correctly!
+    </h3>
+    <h3 th:if="${isCorrectGuess != null && !isCorrectGuess}">
+        You didn't guess correctly!
+    </h3>
+</main>
+
+<footer th:replace="partials/partials :: footer"></footer>
+<th:block th:include="partials/scripts :: scripts"></th:block>
+</body>
+</html>
+
+
 
 <!--Well that didn't work-->
 <!--<h2 th:text="${message}"></h2><br>-->
@@ -27,26 +53,3 @@
 <!--</div>-->
 
 <!--Walkthrough answer-->
-
-<a th:href="@{/roll-dice/1}">Guess 1</a><br>
-<a th:href="@{/roll-dice/2}">Guess 2</a><br>
-<a th:href="@{/roll-dice/3}">Guess 3</a><br>
-<a th:href="@{/roll-dice/4}">Guess 4</a><br>
-<a th:href="@{/roll-dice/5}">Guess 5</a><br>
-<a th:href="@{/roll-dice/6}">Guess 6</a>
-
-<div th:if="${myGuess}">
-    Your guess was <span th:text="${myGuess}"></span>.<br>
-    The rolled number is <span th:text="${randomNumber}"></span>.
-</div>
-
-<h3 th:if="${isCorrectGuess}">
-    You guessed correctly!
-</h3>
-<h3 th:if="${isCorrectGuess != null && !isCorrectGuess}">
-    You didn't guess correctly!
-</h3>
-<footer th:replace="partials/footer :: footer"></footer>
-<scripts th:replace="partials/scripts :: scripts"></scripts>
-</body>
-</html>
