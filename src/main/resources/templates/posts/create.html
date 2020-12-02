@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head :: head('Write Post')">
     <meta charset="UTF-8">
-    <title>Create Ad</title>
-    <div th:replace="partials/links :: links"/>
 </head>
 <body>
-<header th:replace="partials/header :: header"/>
-<nav th:replace="partials/navbar :: navbar"/>
+<nav th:replace="partials/navbar :: nav"></nav>
+<header th:replace="partials/header :: header('Escribes...')"></header>
 
-<main class="container mt-3">
+<main class="container">
     <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
         <div class="form-group">
             <input type="text" th:field="*{id}" style="display: none;">
@@ -20,15 +17,15 @@
         </div>
         <div class="form-group">
             <label for="body">Post Content</label>
-            <textarea th:field="*{body}" class="form-control" aria-describedby="bodyHelprr" id="body" cols="72" rows="5"></textarea>
+            <textarea th:field="*{body}" class="form-control" aria-describedby="bodyHelper" id="body" cols="72" rows="5"></textarea>
             <small id="bodyHelp" class="form-text text-muted">Dije me!</small>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </main>
 
-<footer th:replace="partials/footer :: footer"/>
-<div th:replace="partials/scripts :: scripts"/>
-</body>
+<footer th:replace="partials/partials :: footer"></footer>
+<th:block th:include="partials/scripts :: scripts"></th:block>
 </body>
 </html>
+

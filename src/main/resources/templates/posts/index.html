@@ -1,13 +1,12 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="partials/head :: head('All Posts')">
     <meta charset="UTF-8">
-    <title>Show Posts</title>
-    <link th:replace="partials/links :: links"/>
 </head>
 <body>
-<header th:replace="partials/header :: header"></header>
-<nav th:replace="partials/navbar :: navbar"></nav>
+<nav th:replace="partials/navbar :: nav"></nav>
+<header th:replace="partials/header :: header('The People Have Spoken')"></header>
 
 <main class="container">
     <show_post th:if="${posts}">
@@ -19,7 +18,8 @@
     </show_post>
 </main>
 
-<footer th:replace="partials/footer :: footer"></footer>
-<scripts th:replace="partials/scripts :: scripts"></scripts>
+<footer th:replace="partials/partials :: footer"></footer>
+<th:block th:include="partials/scripts :: scripts"></th:block>
 </body>
-</html></html>
+</html>
+

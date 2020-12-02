@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head :: head('New Post')">
+    <meta charset="UTF-8">
+</head>
+<body>
+<nav th:replace="partials/navbar :: nav"></nav>
+<header th:replace="partials/header :: header('Whats happening?')"></header>
+
+<main class="container">
+    <form th:action="@{/posts/create}" th:method="post">
+        Title:
+        <input name="title" id="name-ipt"/>
+        <br/>
+        Body:
+        <input name="body"/>
+        <br/>
+        <input type="submit"/>
+    </form>
+</main>
+
+<footer th:replace="partials/partials :: footer"></footer>
+<th:block th:include="partials/scripts :: scripts"></th:block>
+</body>
+</html>

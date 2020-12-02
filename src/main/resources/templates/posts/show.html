@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="partials/head :: head('Submitted post')">
     <meta charset="UTF-8">
-    <title>Show Post</title>
-    <link th:replace="partials/links :: links"/>
 </head>
 <body>
-<div th:replace="partials/header :: header"></div>
-<nav th:replace="partials/navbar :: navbar"/>
+<nav th:replace="partials/navbar :: nav"></nav>
+<header th:replace="partials/header :: header('What you wrote...')"></header>
 
-<main class="container mt-3">
+<main class="container">
     <show_post th:if="${post}">
         <div class="card">
             <div class="card-header">
@@ -28,7 +26,9 @@
     </show_post>
 </main>
 
-<div th:replace="partials/footer :: footer"></div>
-<div th:replace="partials/scripts :: scripts"/>
+<footer th:replace="partials/partials :: footer"></footer>
+<th:block th:include="partials/scripts :: scripts"></th:block>
 </body>
 </html>
+
+

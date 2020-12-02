@@ -28,8 +28,15 @@ public class PostController {
         postList.add(new Post(0, "Another Post", "This is another Post"));
         model.addAttribute("posts", postList);
 */
-        List<Post> posts = postDao.findAll();
-        model.addAttribute("posts", posts);
+        model.addAttribute("posts", postDao.findAll());
+        return "posts/index";
+    }
+
+    @GetMapping("posts/search")
+    public String searchPosts(@RequestParam(name = "term") String term, Model viewModel){
+        term = "%"+term+"%";
+        List<Post> dbPosts = postDao.findAllByTitleIsLike(term);
+        viewModel.addAttribute("posts", dbPosts);
         return "posts/index";
     }
 
@@ -39,15 +46,13 @@ public class PostController {
         Post post = new Post(0, "Sample Post", "This would be the body for the selected post");
         model.addAttribute("post", post);
 */
-        Post selectedPost = postDao.getOne(id);
-        model.addAttribute("selectedPost", selectedPost );
+        model.addAttribute("selectedPost", postDao.getOne(id));
         return "posts/show";
     }
 
     @GetMapping("/posts/create")
     public String createNewPost(Model model){
-        model.addAttribute("post", new Post());
-        return "posts/create";
+        return "posts/new";
     }
 
     @PostMapping("/posts/create")
@@ -56,7 +61,7 @@ public class PostController {
         return "redirect:/posts/" + post.getId();
     }
 
-    @GetMapping("/post/delete/{id}")
+    @GetMapping("/posts/delete/{id}")
     public String deletePost(@PathVariable long id){
         Post post = postDao.getOne(id);
         postDao.delete(post);
