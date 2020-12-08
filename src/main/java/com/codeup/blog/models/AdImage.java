@@ -16,24 +16,22 @@ public class AdImage {
     @JoinColumn (name = "ad_id")
     private Ad ad;
 
-    public AdImage() {
+    public AdImage() { }
 
-    }
-
-    //Read
+//Read
     public AdImage(long id, String path, Ad ad) {
         this.id = id;
         this.path = path;
         this.ad = ad;
     }
 
-    //Create
-
+//Create
     public AdImage(String path, Ad ad) {
         this.path = path;
         this.ad = ad;
     }
 
+//Getters and Setters
     public long getId() {
         return id;
     }

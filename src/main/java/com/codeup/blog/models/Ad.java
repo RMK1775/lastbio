@@ -28,23 +28,25 @@ public class Ad {
             joinColumns = {@JoinColumn(name="ad_id")},
             inverseJoinColumns = {@JoinColumn(name="category_id")}
     )
+
     private List<AdCategory> categories;
 
     public Ad(){}
 
 //Create
-    public Ad(String aTitle, String aDescription, User owner, List<AdImage> images){
+    public Ad(String aTitle, String aDescription, User anOwner, List<AdImage> images){
         this.title = aTitle;
         this.description = aDescription;
-        this.owner = owner;
+        this.owner = anOwner;
         this.images = images;
     }
+
 //Read
-    public Ad(long anId, String aTitle, String aDescription, User owner, List<AdImage> images){
+    public Ad(long anId, String aTitle, String aDescription, User anOwner, List<AdImage> images){
         this.id = anId;
         this.title = aTitle;
         this.description = aDescription;
-        this.owner = owner;
+        this.owner = anOwner;
         this.images = images;
     }
 

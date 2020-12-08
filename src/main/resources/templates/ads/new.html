@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
 </head>
 <body>
-<nav th:replace="partials/navbar :: nav"></nav>
-<header th:replace="partials/header :: header('Watcha got?')"></header>
+    <nav th:replace="partials/navbar :: nav"></nav>
+    <header th:replace="partials/header :: header('Watcha got?')"></header>
 
-<main class="container">
-<form th:action="@{/ads/create}" th:method="post">
-    Title:
-    <input name="title" id="name-ipt"/>
-    <br/>
-    Description:
-    <input name="description"/>
-    <br/>
-    <input type="submit"/>
-</form>
-</main>
+    <main class="container">
+        <form th:action="@{/ads/create}" th:method="post" th:object="${ad}">
+            Title:
+            <input th:field="*{title}"/>
+            <br/>
+            Description:
+            <input th:field="*{description}"/>
+            <br/>
+            <input type="submit"/>
+        </form>
+    </main>
 
-<footer th:replace="partials/partials :: footer"></footer>
-<th:block th:include="partials/scripts :: scripts"></th:block>
+    <footer th:replace="partials/partials :: footer"></footer>
+    <th:block th:include="partials/scripts :: scripts"></th:block>
 </body>
 </html>

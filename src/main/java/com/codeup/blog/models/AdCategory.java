@@ -19,20 +19,20 @@ public class AdCategory {
     public AdCategory() {
     }
 
-    //Read
-    public AdCategory(long id, String name, List<Ad> ads) {
-        this.id = id;
-        this.name = name;
+//Read
+    public AdCategory(long anId, String aName, List<Ad> ads) {
+        this.id = anId;
+        this.name = aName;
         this.ads = ads;
     }
 
-    //Create
-
-    public AdCategory(String name, List<Ad> ads) {
-        this.name = name;
+//Create
+    public AdCategory(String aName, List<Ad> ads) {
+        this.name = aName;
         this.ads = ads;
     }
 
+//Getters and Setters
     public long getId() {
         return id;
     }

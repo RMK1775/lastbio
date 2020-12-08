@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
 </head>
 <body>
-<nav th:replace="partials/navbar :: nav"></nav>
-<header th:replace="partials/header :: header('What do you think?')"></header>
+    <nav th:replace="partials/navbar :: nav"></nav>
+    <header th:replace="partials/header :: header('What do you think?')"></header>
 
-<main class="container">
-    <div class="card">
-        <h2 th:text="${ad.title}"></h2>
-        <p th:text="${ad.description}"></p>
-        <ul>
-            <li th:each="category: ${ad.categories}" th:text="${category.name}"></li>
-        </ul>
-        <div th:each="image: ${ad.images}">
-            <img th:src="${image.path}" >
+    <main class="container">
+        <div class="card">
+            <h2 th:text="${ad.title}"></h2>
+            <p th:text="${ad.description}"></p>
+            <ul>
+                <li th:each="category: ${ad.categories}" th:text="${category.name}"></li>
+            </ul>
+            <div th:each="image: ${ad.images}">
+                <img th:src="${image.path}" >
+            </div>
+            <p>Created by: <span th:text="${ad.owner.username}"></span></p>
         </div>
-        <p>Created by: <span th:text="${ad.owner.username}"></span></p>
-    </div>
-</main>
+    </main>
 
-<footer th:replace="partials/partials :: footer"></footer>
-<th:block th:include="partials/scripts :: scripts"></th:block>
+    <footer th:replace="partials/partials :: footer"></footer>
+    <th:block th:include="partials/scripts :: scripts"></th:block>
 </body>
 </html>

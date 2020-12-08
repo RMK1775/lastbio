@@ -17,7 +17,7 @@
     <br/>
     <input class="btn btn-small btn-success" type="submit"/>
 </form>
-    <form th:action="@{/ads/{id}/delete(id=${ad.getId()})}">
+    <form th:action="@{/ads/{id}/delete(id=${ad.getId()})}" th:method="post">
         <button class="btn btn-small btn-danger">Delete</button>
     </form>
 </main>
